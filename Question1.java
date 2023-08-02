@@ -1,6 +1,7 @@
+import java.util.Scanner;
+
 interface Shape{
-   double area=0.0;
-   double perimeter=0.0;
+   
    
    void input();
    void calculate();
@@ -8,23 +9,30 @@ interface Shape{
 }
 
 class Rectangle implements Shape{
-
+   private float length;
+   private float breadth;
+   private float area;
+   private float perimeter;
    @Override
    public void input() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'input'");
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("Enter the Length of the rectangle:");
+      this.length = scanner.nextFloat();
+      System.out.println("Enter the Breadth of the rectangle:");
+      this.breadth = scanner.nextFloat();
+      scanner.close();
    }
 
    @Override
    public void calculate() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'calculate'");
+      area =length*breadth;
+      perimeter=length+breadth;
+
    }
 
    @Override
    public void display() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'display'");
+      System.out.println("Area is: " +area+" Perimeter is: "+perimeter);
    }
 
 }
@@ -33,19 +41,19 @@ class Circle implements Shape{
 
    @Override
    public void input() {
-      // TODO Auto-generated method stub
+      
       throw new UnsupportedOperationException("Unimplemented method 'input'");
    }
 
    @Override
    public void calculate() {
-      // TODO Auto-generated method stub
+     
       throw new UnsupportedOperationException("Unimplemented method 'calculate'");
    }
 
    @Override
    public void display() {
-      // TODO Auto-generated method stub
+      
       throw new UnsupportedOperationException("Unimplemented method 'display'");
    }
 
@@ -55,7 +63,10 @@ class Circle implements Shape{
 public class Question1{ 
     public static void main(String[] args) 
     {
-
+           Shape s1=  new Rectangle();
+           s1.input();
+           s1.calculate();
+           s1.display();
 
     }
 
