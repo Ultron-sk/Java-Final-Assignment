@@ -36,38 +36,98 @@ class Rectangle implements Shape{
    }
 
 }
-
-class Circle implements Shape{
-
+class Square implements Shape{
+   private float side;
+   private float area;
+   private float perimeter;
    @Override
    public void input() {
-      
-      throw new UnsupportedOperationException("Unimplemented method 'input'");
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("Enter the Side of the Square:");
+      this.side = scanner.nextFloat();
+     
+      scanner.close();
    }
 
    @Override
    public void calculate() {
-     
-      throw new UnsupportedOperationException("Unimplemented method 'calculate'");
+      area =side*side;
+      perimeter=4*side;
+
    }
 
    @Override
    public void display() {
-      
-      throw new UnsupportedOperationException("Unimplemented method 'display'");
+      System.out.println("Area is: " +area+" Perimeter is: "+perimeter);
    }
 
+}
+
+class Circle implements Shape{
+   private float radius;
+   private float area;
+   private float perimeter;
+   @Override
+   public void input() {
+      
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("Enter the Radius of the Circl:");
+      this.radius = scanner.nextFloat();
+     
+      scanner.close();
+   }
+
+   @Override
+   public void calculate() {
+     area = (float) (3.14 * radius * radius);
+     perimeter = (float) (2 * 3.14 * radius);
+
+   }
+
+   @Override
+   public void display() {
+      System.out.println("The Area of the circle with radius: "+radius+" is: "+area+" and the perimeter is: "+perimeter);
+   }
+
+}
+class Geomentry{
+   public  void performOperations(Shape shape){
+      shape.input();
+      shape.calculate();
+      shape.display();
+   }
 }
 
 
 public class Question1{ 
     public static void main(String[] args) 
     {
-           Shape s1=  new Rectangle();
-           s1.input();
-           s1.calculate();
-           s1.display();
-
+       Scanner scanner = new Scanner(System.in);
+         
+          
+           Geomentry g =  new Geomentry();
+           System.out.println("Select the shape :\n1.Rectangle\n2.Circle\n3.Square");
+           int option =  scanner.nextInt();
+           switch(option){
+            case 1:
+              Shape s1=  new Rectangle();
+                g.performOperations(s1);
+                break;
+                  case 2:
+                  Shape s2 = new Circle();
+                  g.performOperations(s2);
+                  break;
+                   case 3:
+                  Shape s3 = new Square();
+                  g.performOperations(s3);
+                  break;
+                  default:
+                  System.out.println("No shape available");
+                  break;
+           } 
+     
+             
+        scanner.close();
     }
 
 
