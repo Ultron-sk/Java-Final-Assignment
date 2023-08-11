@@ -36,6 +36,40 @@ class Rectangle implements Shape{
    }
 
 }
+class Triangle implements Shape{
+   private float height;
+   private float base;
+   private float side1;
+   private float side2;
+   private float area;
+   private float perimeter;
+   @Override
+   public void input() {
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("Enter the Height of the rectangle:");
+      this.height = scanner.nextFloat();
+      System.out.println("Enter the Base(side3) of the rectangle:");
+      this.base = scanner.nextFloat();
+      System.out.println("Enter one side of the rectangle:");
+      this.side1 = scanner.nextFloat();
+      System.out.println("Enter anothere side of the rectangle:");
+      this.side2 = scanner.nextFloat();
+      scanner.close();
+   }
+
+   @Override
+   public void calculate() {
+      area =(float) (0.5*height*base);
+      perimeter=base+side1+side2;
+
+   }
+
+   @Override
+   public void display() {
+      System.out.println("Area is: " +area+" Perimeter is: "+perimeter);
+   }
+
+}
 class Square implements Shape{
    private float side;
    private float area;
