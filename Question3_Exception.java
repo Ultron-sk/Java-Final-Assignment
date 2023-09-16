@@ -14,7 +14,7 @@ public class Question3_Exception {
          
     }
 
-   public static void perform() throws ArithmeticException{
+   public static void perform() {
       Scanner sc = new Scanner(System.in);
          System.out.println("Enter a  number::");
          int x = sc.nextInt();
