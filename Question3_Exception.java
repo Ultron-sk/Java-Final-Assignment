@@ -18,11 +18,12 @@ public class Question3_Exception {
       Scanner sc = new Scanner(System.in);
          System.out.println("Enter a  number::");
          int x = sc.nextInt();
+           sc.close();
          if(x<0){
  
             throw new ArithmeticException("Negative  Number is Given As Input");
          }
-         sc.close();
+       
    }
 
 }
